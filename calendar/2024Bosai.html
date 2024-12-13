@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/hed.css" />
+    <link rel="stylesheet" href="../assets/css/foo.css">
+    <title>MGNTCam HP - Live</title>
+</head>
+<body>
+    <script src="../assets/js/autoconverter.js"></script>
+    <header class="header">
+      <a href="" class="logo">MGNTCam</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/CamLive.html">Cam-Live</a></li>
+        <li>
+          <a>Blog</a>
+          <ul class="dropdown">
+            <li><a href="/history.html">これまでのMGNT</a></li>
+            <li><a href="../calendar/2023Bosai.html">2023年カレンダー</a></li>
+            <li><a href="../calendar/2024Bosai.html">2024年カレンダー</a></li>
+          </ul>
+        </li>
+        <li><a href="../Link.html">Link</a></li>
+      </ul>
+    </header>
+    
+
+    <div class="content-wrapper">
+        <main class="article-content">
+            <h1>緊急地震速報を複数対応したはなし</h1>
+            <p>2024年12月12日書いた！</p>
+            <p>この記事は<a href="https://adventar.org/calendars/9939">防災アプリ Advent Calendar 2024 - 14日目</a>です。<br>新しく参戦してきた人もいて素晴らしいですね。</p>
+            <div class="blog-auto-insert-element"></div>
+            <h2>MGNTとは</h2>
+            <p>福岡県福岡市で地震観測をしていて、プログラミングによりソフトウェアやサイトを作っています。<a href="https://www.youtube.com/@FukuokaMGNTCamS">FukuokaMGNTCam</a></p>
+
+            <h2>タイトル回収</h2>
+            <p>今年は波乱万丈な1年となりました。正月から始まり、今日まで数えきれないほどの災害が起きました。<br>ということで、QuapInfoというMGNTが開発しているソフトについて放していきます。</p>
+            <div class="image-container">
+                <img src="../image/Quap1.png" alt="PointMonitor" width=90%>
+                <small class="caption">現状。あ、書いた日バレバレですね。</small></div>
+            <p>QuapInfoは少ない負荷で高速描画を目標にしています。これまで何度も描画方法を変え、現状の描画方法が最も効率良く描画できています。</p>
+            <h2>2024/01/01</h2>
+            <p>年明けすぐの日16時6分、16時10分、能登地方を震源とするM7．6の地震が発生。かなり衝撃となった人も多いはず。当時地震観測で録画できていないなんて思ってませんでした。</p>
+            <p>この場を借りて、当時のUIはQuarogを意識した感じになっていました。本当に申し訳ないと思っています。あの後、<a href="https://x.com/fukushimacam">FukushimaCam - 黒板ちゃん</a>さんと相談の末、画像のUIで決定しました。(1/24)</p>
+            <div class="image-container">
+              <img src="../image/Quap2.png" alt="PointMonitor" width=90%>
+              <small class="caption">画像は以前のを流用、UIはペイントソフトで制作。何この情報。</small></div>
+            <h2>3/15</h2>
+            <p>この日の0時14分、福島県で震度5弱、M5.8の地震がありました。</p>
+            <div class="image-container">
+              <img src="../image/Quap3.png" alt="PointMonitor" width=90%>
+              <small class="caption">2024/03/15 00:14ごろの地震 再現</small></div>
+            <p>緊急地震速報のマップにおいて、震度文字をつけるか悩みました。(震度速報との勘違いの可能性があったため)<br>ただ、震度速報のように枠はつけず、文字色を縁として使い、震度色を文字色とすることで、少なくとも震度速報との誤認は減ると踏みました。</p>
+            <p>この仕様は現在まで続いていますが、設定を作る場合「表示/非表示」を作ると思います。</p>
+            <h2>8/1</h2>
+            <p>この日特に顕著な地震はあっていませんが、これまでの動作を見て、性能の低いPCで動作できるか怪しく感じました。<br>それを考え、再び一から作ることにしました。</p>
+            <div class="image-container">
+              <img src="../image/Quap4.png" alt="PointMonitor" width=90%>
+              <small class="caption">正月の地震を「予報区」で塗りつぶし描画</small></div>
+            <p>これまでは、一度情報が送信されるたびに、緯度経度を画面座標に変換し、塗りつぶしていましたが、この方法では最大100程度かかります。</p>
+            <p>(時間ないので描画方法一旦省略。後日書き足します。申し訳ない。)</p>
+
+
+            <p>これにより、観測点ごとの震度でも80~130msで描画できるようになりました。</p>
+            <div class="image-container">
+              <img src="../image/Quap5.png" alt="PointMonitor" width=90%>
+              <small class="caption">この地震の有感は全観測点の60%近くあると聞いたので、だいたい3000くらい？</small></div>
+
+            <h2>8/3</h2>
+            <p>描画も安定してきたということで、従来のUIを加えました。画像のを作った後に、観測点震度は角丸にしてます。</p>
+            <div class="image-container">
+              <img src="../image/Quap6.png" alt="PointMonitor" width=90%>
+
+            <h2>8/4</h2>
+            <p>この日も顕著な地震はありませんでしたが、QuapInfoは大きく変わりました。
+              と言っても、津波警報に対応したまでです。</p>
+            <div class="image-container">
+              <img src="../image/Quap7.png" alt="PointMonitor" width=90%>
+              <small class="caption">当時の生電文を使用し描画した情報。</small></div>
+            <p>訓練で発表される南海トラフで起きうる規模の大津波警報での検証も成功しました。
+              本番でも成功して欲しいと思うばかりです。</p>
+            <h2>8/8</h2>
+            <p>この日16時43分、日向灘で震度6弱、M7.1の地震がありました。<br>津波注意報や臨時情報も発表され、混乱の日となりました。</p>
+            <p>QuapInfoも当然のごとく思った動作にならず、描画されるはずの波はどこへという感じ。<br>津波注意報については正常に動きましたが、やはり緊急地速報や地震情報は思った通りに動きません。</p>
+            <div class="image-container">
+              <img src="../image/Quap8.png" alt="PointMonitor" width=90%>
+              <small class="caption">津波注意報だけ描画成功した絵。</small></div>
+            <h2>8/19</h2>
+            <p>この日の地震、0時48分に震度4、0時50分に震度5弱の地震が立て続けに発生しましたが、この時発表された情報が何とも難しかったです。</p>
+            <div class="image-container">
+              <img src="../image/Quap9.png" alt="PointMonitor" width=90%>
+              <small class="caption">情報錯乱で自分も割と混乱した。</small></div>
+            <p>恐らく流れとして、<br>「0時48分の震度速報1」<br>「0時48分の震度速報2」<br>「0時48分の震源情報」<br>「0時50分の震度速報だけど48分として発表」<br>「0時48分の震源、震度情報を発表」<br>「0時50分の震源、震度情報を発表」<br>かなって感じです。震源情報は震度を含まないので、震度速報から維持させていましたが、今回の地震で仕組みを見直す羽目となりました。</p>
+            <h2>11/26</h2>
+            <p>まだ最近なので覚えてるかもしれません。久しぶりに石川で地震があったと思えば、今度は西方沖。</p>
+            <div class="image-container">
+              <img src="../image/Quap10.png" alt="PointMonitor" width=90%>
+              <small class="caption">情報錯乱で自分も割と混乱した。</small></div>
+              <div class="image-container">
+                <img src="../image/Quap11.png" alt="PointMonitor" width=20%>
+                <small class="caption">震度欠測は5弱の色で「?」と示す。</small></div>
+            <p>まだ油断できないんだなって感じです。</p>
+            <p>この地震以降の情報で、「取消報が処理途中で止まっちゃう」「P波S波の経度が被ってしまう」という致命的ミスを修正しました。何やってるんですかって感じ。</p>
+
+              <h2>さいごに</h2>
+              <p>急ぎ足で書いた記事ですので、中身薄いし意味あるんかって感じですが、今後さらに書き足していくと思います。とにかく、最後まで見てくださりありがとうございます。</p>
+            </div>
+      </div>
+
+
+
+    <footer class="site-footer">
+        <div class="footer04">
+            <ul class="menu">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../CamLive.html">Cam Live</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="../Link.html">Link</a></li>
+            </ul>
+            <p class="copyright">
+              &copy;FukuokaMGNTCam - All rights reserved.
+            </p>
+          </div>
+    </footer>
+  <script src="../assets/js/autoconverter.js"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">
+<script>
+  mermaid.initialize({
+      startOnLoad: true, 
+      theme: 'dark',
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
