@@ -1,0 +1,240 @@
+
+body {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
+    background-color: #212124;
+    color: #fff;
+    padding-top: 100px;
+  margin-top: 60px
+  }
+
+html {
+  height: 100vh;
+}
+
+  
+
+
+
+  .under-construction {
+    background-image: url('/image/banner.jpg');
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 3em;
+    color: #ffffff;
+    text-align:center;
+    padding-top: 100px;
+    height: 400px;
+  }
+  
+  @media (min-width: 48em) {
+    .under-construction {
+      font-size: 4em;
+    }
+  }
+  
+
+
+  .article-content {
+    font-family: "Noto Sans JP";
+    font-weight: 200;
+    font-size: 16px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #252629;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0 rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 1000px) {
+    .article-content {
+        width: 70%;
+    }
+}
+  .article-content a:link {
+    color: #67cfff;
+  }
+
+  .article-content a:visited {
+    color: #bb67ff;
+  }
+
+.image-container img {
+    display: block;
+}
+.caption {
+  font-size: 80%;
+  color: #ffffff;
+}
+
+
+pre {
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 5px;
+  background: #25292f;
+  color: #fff;
+  white-space: pre-wrap;
+  max-width: 90%;
+}
+code {
+  font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+}
+
+  
+
+  table { 
+    margin: 50px auto;
+    border-collapse: collapse;
+    font-family: Agenda-Light, sans-serif;
+    font-weight: 100; 
+    background: #393f53; color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 20px 0 rgba(17, 17, 17, 0.7);
+  }
+  table caption { 
+    font-size: 2rem; color: #ffffff;
+    margin: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left, center right; 
+  }
+  table thead th { font-weight: 600; }
+  table thead th, table tbody td { 
+    padding: .8rem; font-size: 1.4rem;
+  }
+  table tbody td { 
+    padding: .8rem; font-size: 1.4rem;
+    color: #ffffff; background: #29292c; 
+  }
+  table tbody tr:not(:last-child) { 
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;  
+  }
+  
+  @media screen and (max-width: 600px) {
+    table caption { background-image: none; }
+    table thead { display: none; }
+    table tbody td { 
+      display: block; padding: .6rem; 
+    }
+    table tbody tr td:first-child { 
+      background: #31333d; color: #fff; 
+    }
+    table tbody td:before { 
+      content: attr(data-th); 
+      font-weight: bold;
+      display: inline-block;
+      width: 6rem;  
+    }
+  }
+
+  .content-wrapper {
+    display: flex
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .content-wrapper .content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .rounded-icon {
+    border-radius: 50%;
+    background-color: #29292c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center {
+    margin: 0 auto;
+  }
+
+  .sns-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .sns-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 70%;
+  }
+
+  .youtube {
+    background: #ff0000;
+  }
+
+  .x {
+    background: #1da1f2;
+  }
+
+  .discord {
+    background: #7289da;
+  }
+
+  .hero {
+    background-image: url('/image/background.png');
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: parallax linear both;
+    animation-timeline: view();
+    padding-top: 0;
+    min-height: 400px;
+    height: 90svh;
+  }
+  
+  @keyframes parallax {
+    from {
+      background-position: center 500px;
+    }
+  
+    to {
+      background-position: center 0px;
+    }
+  }
+
+.blog-auto-insert-element {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px;
+    background-color: #29292c;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0 rgba(255, 255, 255, 0.7);
+}
+.blog-auto-insert-element a {
+    text-decoration: none;
+    padding-left: 20px
+}
+.blog-auto-insert-element a:hover {
+    text-decoration: underline;
+}
+.blog-auto-insert-element h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
